@@ -4,9 +4,6 @@
   "description": "Use redis keyspace notifications to trigger timed events",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/lab/bin/lab -c -l test",
-    "lint": "jshint .",
-    "validate": "npm ls"
   },
   "repository": {
     "type": "git",
