@@ -1,0 +1,48 @@
+{
+  "name": "redis-schedule",
+  "version": "0.0.1",
+  "description": "Use redis keyspace notifications to trigger timed events",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/lab/bin/lab -c -l test",
+    "lint": "jshint .",
+    "validate": "npm ls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/djangogao/redis-schedule.git"
+  },
+  "keywords": [
+    "redis",
+    "event",
+    "queue",
+    "schedule",
+    "cron"
+  ],
+  "author": "Django Gao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/djangogao/redis-schedule/issues"
+  },
+  "homepage": "https://github.com/djangogao/redis-schedule",
+  "dependencies": {
+    "joi": "^6.6.1",
+    "redis": "2.6.2",
+    "cron-parser": "2.1.1"
+  },
+  "devDependencies": {
+    "jshint": "^2.8.0",
+    "lab": "^5.15.1",
+    "precommit-hook": "^3.0.0",
+    "should": "^7.0.3",
+    "sinon": "^1.15.4"
+  },
+  "optionalDependencies": {
+    "hiredis": "0.4.1"
+  },
+  "pre-commit": [
+    "lint",
+    "validate",
+    "test"
+  ]
+}
