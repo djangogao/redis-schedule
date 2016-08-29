@@ -4,17 +4,27 @@
 
 var Scheduler = require('../lib/scheduler');
 
-var task = new Scheduler();
+var task = new Scheduler(
+    {
+        host: '127.0.0.1',
+        port: 6379
+        // password: xxx
+    }
+);
+
+var key = 'django_gao_test',
+    cronTime = '0 */1 * * * *';
 
 task.schedule({
-    key: 'django_gao_test',
-    cronTime: '0 */1 * * * *',
+    key: key,
+    cronTime: cronTime,
     handler: function() {
         console.log('execute handle ' + new Date().toString());
 
+        // for cron job test
         task.reschedule({
-                key: 'django_gao_test',
-                cronTime: '0 */1 * * * *',
+                key: key,
+                cronTime: cronTime,
             },
             function(error) {
                 if(error) {
@@ -27,5 +37,13 @@ task.schedule({
     if(error) {
         console.log('callback error '+ new Date().toString());
         throw error;
+    }
+});
+
+
+task.addHandler({
+    key: key,
+    handler: function() {
+        console.log('Add handler test '+ new Date().toString());
     }
 });
